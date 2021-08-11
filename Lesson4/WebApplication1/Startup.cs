@@ -1,11 +1,10 @@
-using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Configuration.Json;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System;
 
 namespace WebApplication1
 {
@@ -35,6 +34,8 @@ namespace WebApplication1
             Console.WriteLine("Key3: " + myLibraryConfig.Key3);
             Console.WriteLine("SomeConfiguration: " + myLibraryConfig.GroupedConfig.SomeConfiguration);
             Console.WriteLine("SomeConfiguration1: " + myLibraryConfig.GroupedConfig.SomeConfiguration1);
+
+            services.Configure<MyLibraryConfig>(Configuration.GetSection("CustomSection"));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
