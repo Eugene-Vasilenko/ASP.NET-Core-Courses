@@ -30,13 +30,13 @@ namespace WebApplication1
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)
         {
-            // logger.Log(LogLevel.Trace, "Trace");
-            // logger.Log(LogLevel.Debug, "Debug");
-            // logger.Log(LogLevel.Information, "Information");
-            // logger.Log(LogLevel.Warning, "Warning");
-            // logger.Log(LogLevel.Error, "Error");
-            // logger.Log(LogLevel.Critical, "Critical");
-            // logger.Log(LogLevel.None, "None");
+            logger.Log(LogLevel.Trace, "Trace");
+            logger.Log(LogLevel.Debug, "Debug");
+            logger.Log(LogLevel.Information, "Information");
+            logger.Log(LogLevel.Warning, "Warning");
+            logger.Log(LogLevel.Error, "Error");
+            logger.Log(LogLevel.Critical, "Critical");
+            logger.Log(LogLevel.None, "None");
 
             // var loggingOptions = Configuration.GetSection("FileLog").Get<LoggingOptions>();
             //
@@ -47,9 +47,9 @@ namespace WebApplication1
             //
             // var logger1 = loggerFactory.CreateLogger("Custom Logger");
 
-            logger.LogInformation("Information");
-            logger.LogInformation("Information 1");
-            logger.LogInformation("Information 2");
+            //logger.LogInformation("Information");
+            //logger.LogInformation("Information 1");
+            //logger.LogInformation("Information 2");
 
             if (env.IsDevelopment())
             {

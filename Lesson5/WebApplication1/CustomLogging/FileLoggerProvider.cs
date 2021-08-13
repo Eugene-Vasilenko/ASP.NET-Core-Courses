@@ -3,6 +3,7 @@ using System.IO;
 
 namespace WebApplication1.CustomLogging
 {
+    [ProviderAlias("CustomFileLogger")]
     public class FileLoggerProvider : ILoggerProvider
     {
         public readonly LoggingOptions Options;
