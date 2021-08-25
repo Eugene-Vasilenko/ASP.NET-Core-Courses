@@ -23,8 +23,14 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet]
-        [Route("five/{customParam:int}")]
-        public IEnumerable<WeatherForecast> Get(int customParam)
+        public IActionResult Get()
+        {
+            return Ok("Success");
+        }
+
+        [HttpGet]
+        [Route("five/{customParam:int}/{enotherParam:length(6)}")]
+        public IEnumerable<WeatherForecast> Get(int customParam, string enotherParam)
         {
             var rng = new Random();
             return Enumerable.Range(1, customParam).Select(index => new WeatherForecast
