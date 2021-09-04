@@ -90,7 +90,7 @@ namespace WebApplication1.Controllers
             {
                 new Claim(ClaimTypes.Name, student.Username),
                 new Claim("Company", "Existek"),
-                new Claim("Sex", "Male"),
+                new Claim(OwnClaims.Grade, student.Grade),
             };
 
             claims.AddRange(roleClaims);

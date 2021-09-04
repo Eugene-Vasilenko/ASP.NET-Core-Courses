@@ -1,5 +1,6 @@
 using ConsoleApp1.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using System.Text.Json.Serialization;
 using WebApplication1.Configuration;
+using WebApplication1.Requirements;
 
 namespace WebApplication1
 {
@@ -31,6 +33,8 @@ namespace WebApplication1
             {
                 options.UseSqlServer(connectionString);
             });
+
+            services.AddTransient<IAuthorizationHandler, CustomRequirementHandler>();
 
 
             //Cookies Authentication
@@ -66,7 +70,7 @@ namespace WebApplication1
                         return context.User.IsInRole("User");
                     });
 
-                    //builder.AddRequirements();
+                    builder.AddRequirements(new CustomRequirement("Master"));
                 });
             });
 
